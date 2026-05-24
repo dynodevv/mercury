@@ -2,13 +2,8 @@ package com.dynodevv.mercury.ui.theme
 
 import android.app.Activity
 import android.os.Build
-import androidx.compose.animation.core.Spring
-import androidx.compose.animation.core.spring
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material3.ColorScheme
-import androidx.compose.material3.MaterialExpressiveTheme
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.MotionScheme
 import androidx.compose.material3.Shapes
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
@@ -40,19 +35,7 @@ private val AppShapes = Shapes(
     small = RoundedCornerShape(8.dp),
     medium = RoundedCornerShape(16.dp),
     large = RoundedCornerShape(24.dp),
-    extraLarge = RoundedCornerShape(32.dp),
-    largeIncreased = RoundedCornerShape(36.dp)
-)
-
-private val ExpressiveMotionScheme = MotionScheme.expressive(
-    defaultEffectsSpec = spring(
-        stiffness = Spring.StiffnessMedium,
-        dampingRatio = Spring.DampingRatioMediumBouncy
-    ),
-    defaultSpatialSpec = spring(
-        stiffness = Spring.StiffnessMediumLow,
-        dampingRatio = Spring.DampingRatioLowBouncy
-    )
+    extraLarge = RoundedCornerShape(32.dp)
 )
 
 @Composable
@@ -81,10 +64,9 @@ fun MercuryTheme(
         }
     }
 
-    MaterialExpressiveTheme(
+    MaterialTheme(
         colorScheme = colorScheme,
         shapes = AppShapes,
-        motionScheme = ExpressiveMotionScheme,
         typography = Typography,
         content = content
     )

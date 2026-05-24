@@ -34,7 +34,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
-import androidx.compose.material.icons.filled.Chat
+import androidx.compose.material.icons.filled.ChatBubble
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Bookmark
@@ -133,7 +133,6 @@ fun BrowserScreen(
                 setSupportZoom(true)
                 builtInZoomControls = true
                 displayZoomControls = false
-                mixedModeAllowAll = true
                 cacheMode = WebSettings.LOAD_DEFAULT
             }
             webViewClient = MercuryWebViewClient(
@@ -267,7 +266,7 @@ fun BrowserScreen(
                         }
                     }
                     IconButton(onClick = { viewModel.toggleAiChat() }) {
-                        Icon(Icons.AutoMirrored.Filled.Chat, contentDescription = stringResource(R.string.talk_to_website))
+                        Icon(Icons.Filled.ChatBubble, contentDescription = stringResource(R.string.talk_to_website))
                     }
                     IconButton(onClick = { showMenu = true }) {
                         Icon(Icons.Filled.MoreVert, contentDescription = "Menu")

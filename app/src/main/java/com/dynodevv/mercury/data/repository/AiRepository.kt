@@ -23,6 +23,8 @@ import io.ktor.utils.io.ByteReadChannel
 import io.ktor.utils.io.readUTF8Line
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.emitAll
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.serialization.encodeToString
@@ -45,8 +47,8 @@ class AiRepository @Inject constructor(
     }
 
     fun streamChatCompletion(messages: List<AiMessage>): Flow<String> = flow {
-        val config = settingsDataStore.getAiProviderConfig()
-        val provider = config ?: run {
+        val provider = settingsDataStore.getAiProviderConfig().first()
+        if (provider == null) {
             emit("Error: No AI provider configured. Please add your API key in Settings.")
             return@flow
         }
