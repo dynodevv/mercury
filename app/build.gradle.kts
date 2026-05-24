@@ -46,9 +46,12 @@ android {
                 "proguard-rules.pro"
             )
             signingConfig = signingConfigs.getByName("release")
+            manifestPlaceholders["appLabel"] = "Mercury"
         }
         debug {
             isDebuggable = true
+            applicationIdSuffix = ".debug"
+            manifestPlaceholders["appLabel"] = "Mercury Dev"
         }
     }
 
